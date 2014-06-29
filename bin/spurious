@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require 'pathname'
+$: << File.join(Pathname.new(__FILE__).dirname.parent, 'lib')
+
+require 'spurious/app'
+Spurious::App.start

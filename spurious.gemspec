@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Spurious::VERSION
   spec.authors       = ["Steven Jack"]
   spec.email         = ["stevenmajack@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Spurious is a cli tool that interacts with the spurious server}
+  spec.description   = %q{Spurious is a cli tool that interacts with the spurious server}
   spec.homepage      = ""
   spec.license       = "MIT"
 
@@ -24,4 +24,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.5"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
+
+  spec.add_runtime_dependency "spurious-server"
+  spec.add_runtime_dependency "eventmachine"
+  spec.add_runtime_dependency "timeout"
 end
