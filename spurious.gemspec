@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Spurious::VERSION
   spec.authors       = ["Steven Jack"]
   spec.email         = ["stevenmajack@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Spurious is a cli tool that interacts with the spurious server}
+  spec.description   = %q{Spurious is a cli tool that interacts with the spurious server}
   spec.homepage      = ""
   spec.license       = "MIT"
 
