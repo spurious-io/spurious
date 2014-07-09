@@ -29,6 +29,7 @@ module Spurious
 
     state_methods
 
+    method_option :'json', :type => :boolean, :default => false, :desc => 'Prints out ports as a json string'
     desc "ports", "List ports for the spurious containers"
     def ports
 
