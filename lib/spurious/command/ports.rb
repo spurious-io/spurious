@@ -19,12 +19,15 @@ module Spurious
           end
         end
 
-        app.say "\n"
+        if app.options[:json]
+          app.say JSON.generate(parsed_data['response'])
+        else
+          app.say "\n"
+          app.print_table(
+            build_table(['Service', 'Guest port', 'Host port'], data)
+          ) unless parsed_data['response'].empty?
 
-        app.print_table(
-          build_table(['Service', 'Guest port', 'Host port'], data)
-        ) unless parsed_data['response'].empty?
-
+        end
         EventMachine.stop_event_loop if parsed_data['close']
 
       end
