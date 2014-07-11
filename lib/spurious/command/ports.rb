@@ -13,7 +13,7 @@ module Spurious
           mapping.each do |mapping_data|
             data << [
               type,
-              mapping_data["GuestPort"],
+              mapping_data["Host"],
               mapping_data["HostPort"]
             ]
           end
@@ -24,7 +24,7 @@ module Spurious
         else
           app.say "\n"
           app.print_table(
-            build_table(['Service', 'Guest port', 'Host port'], data)
+            build_table(['Service', 'Host', 'Port'], data)
           ) unless parsed_data['response'].empty?
 
         end
