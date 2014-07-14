@@ -48,7 +48,7 @@ Spurious requires the following to be installed and started to work correctly:
 For the quick install to work, make sure you have [homebrew](http://brew.sh/) installed then run the following:
 
 ```bash
-curl -L https://raw.github.com/stevenjack/spurious/master/toolsinstall.sh | sh
+curl -L https://raw.github.com/stevenjack/spurious/master/tools/install.sh | sh
 ```
 
 ### Manual install
