@@ -1,6 +1,7 @@
 require 'eventmachine'
 require 'json'
 require 'spurious/command/state'
+require 'spurious/app'
 
 module Spurious
   module Command
@@ -13,7 +14,7 @@ module Spurious
           mapping.each do |mapping_data|
             data << [
               type,
-              mapping_data["Host"],
+              interpolate_host(mapping_data["Host"]),
               mapping_data["HostPort"]
             ]
           end
@@ -30,6 +31,10 @@ module Spurious
         end
         EventMachine.stop_event_loop if parsed_data['close']
 
+      end
+
+      def interpolate_host(reported_host)
+        app.options[:server_host] != Spurious::App::DEFAULT_HOST ? app.options[:server_host] : reported_host
       end
 
       def build_table(headers, data)
