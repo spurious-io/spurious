@@ -132,7 +132,7 @@ containers up and running:
 
 ```bash
 spurious init
-spurious up
+spurious up|boot|start
 ```
 
 You should now have 6 containers running which you can check with:

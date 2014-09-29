@@ -16,16 +16,40 @@ module Spurious
       super
     end
 
-
     def self.state_methods
-      %w(init start update stop delete).each do |meth|
-        desc meth, "#{meth} for the spurious containers"
+      methods = {
+        :init => {
+          :aliases => []
+          },
+        :start => {
+          :aliases => ["up", "boot"]
+          },
+        :update => {
+          :aliases => []
+          },
+        :stop => {
+          :aliases => ["down", "halt"]
+          },
+        :delete => {
+          :aliases => []
+          }
+        }
+      methods.each do |meth, options|
+        desc meth.to_s, "#{meth} the spurious containers"
         define_method(meth) do
-          event_loop meth.to_sym
+          event_loop meth
+        end
+
+        unless options[:aliases].empty? then
+          options[:aliases].each do |alias_meth|
+            desc alias_meth, "alias for `spurious #{meth}`"
+            define_method(alias_meth) do
+              event_loop meth
+            end
+          end
         end
       end
     end
-
 
     state_methods
 
