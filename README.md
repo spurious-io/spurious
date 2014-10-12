@@ -31,8 +31,7 @@ Spurious works on the following platforms:
 
 * OSX
 * Windows
-
-> Support for linux will be available shortly.
+* Linux
 
 ### Dependencies
 
@@ -153,6 +152,20 @@ spurious ports
 
 that returns the list of host and port details for each of the spurious containers. If you pass the flag --json you'll
 get the result back as a JSON string so you can then parse this and use it to automatically configure your chosen method of working with AWS.
+
+### Debug mode
+
+To enable debug output when running spurious, either use the command line argument:
+
+```bash
+spurious init --debug-mode=true
+```
+
+or set the env variable:
+
+```bash
+SPURIOUS_DEBUG=true spurious init
+```
 
 ### SDK Helpers
 

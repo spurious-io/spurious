@@ -50,11 +50,17 @@ if [[ $(command -v boot2docker) ]]; then
 fi
 
 if [[ $(command -v ruby) ]]; then
-  RUBY_VERSION=$(ruby -v | cut -d' ' -f2 | cut -d'p' -f1)
-  vercomp $RUBY_VERSION "1.9"
-  if [[ $? == 2 ]]; then
-    echo "You must have version 1.9 or greater of ruby installed, currently installed: $(ruby -v)"
+  IS_JRUBY=$(ruby -v | cut -d' ' -f1)
+  if [[ $IS_JRUBY == "jruby" ]]; then
+    echo "Spurious should be run on standard MRI ruby (Specifically the server needs to as it uses fork but you can install the CLI tool under jruby"
     exit 1
+  else
+    RUBY_VERSION=$(ruby -v | cut -d' ' -f2 | cut -d'p' -f1)
+    vercomp $RUBY_VERSION "1.9"
+    if [[ $? == 2 ]]; then
+      echo "You must have version 1.9 or greater of ruby installed, currently installed: $(ruby -v)"
+      exit 1
+    fi
   fi
 fi
 
