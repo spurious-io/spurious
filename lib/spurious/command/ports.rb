@@ -19,6 +19,11 @@ module Spurious
           end
         end
 
+        if data.length == 0
+          app.say "[error] Spurious services haven't been started, please run 'spurious start'", :red
+          close_connection
+        end
+
         if app.options[:json]
           app.say JSON.generate(parsed_data['response'])
         else
@@ -28,7 +33,9 @@ module Spurious
           ) unless parsed_data['response'].empty?
 
         end
-        EventMachine.stop_event_loop if parsed_data['close']
+        if parsed_data['close']
+          close_connection
+        end
 
       end
 
