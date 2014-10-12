@@ -24,7 +24,7 @@ module Spurious
         data_parts = data.split("\n")
         data_parts.each do |data_part|
           parsed_data = JSON.parse(data_part.strip)
-          app.say parsed_data['response'], parsed_data['type'] == 'error' ? :red : :green
+          app.say parsed_data['response'], parsed_data['colour'].to_sym
           EventMachine.stop_event_loop if parsed_data['close']
         end
 
