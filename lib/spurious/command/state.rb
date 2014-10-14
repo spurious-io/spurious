@@ -14,6 +14,14 @@ module Spurious
         super
         @type = type
         @app = app
+        @exiting = false
+      end
+
+      def unbind
+        unless @exiting
+          app.say "[error] The spurious-server instance has died, start it again with: 'spurious-server start'", :red
+          EventMachine.stop_event_loop
+        end
       end
 
       def post_init
@@ -25,10 +33,18 @@ module Spurious
         data_parts.each do |data_part|
           parsed_data = JSON.parse(data_part.strip)
           app.say parsed_data['response'], parsed_data['colour'].to_sym
-          EventMachine.stop_event_loop if parsed_data['close']
+          if parsed_data['close']
+            close_connection
+          end
         end
-
       end
+
+      def close_connection
+        @exiting = true
+        EventMachine.stop_event_loop
+        exit
+      end
+
     end
   end
 end
