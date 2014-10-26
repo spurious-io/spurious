@@ -1,5 +1,3 @@
 require "spurious/version"
 
-module Spurious
-  # Your code goes here...
-end
+module Spurious; end

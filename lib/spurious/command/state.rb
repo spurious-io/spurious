@@ -32,7 +32,7 @@ module Spurious
         data_parts = data.split("\n")
         data_parts.each do |data_part|
           parsed_data = JSON.parse(data_part.strip)
-          app.say parsed_data['response'], parsed_data['colour'].to_sym
+          app.say "[#{parsed_data['message_type']}] #{parsed_data['response']}", parsed_data['colour'].to_sym
           if parsed_data['close']
             close_connection
           end
