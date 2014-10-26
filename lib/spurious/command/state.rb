@@ -32,7 +32,7 @@ module Spurious
         data_parts = data.split("\n")
         data_parts.each do |data_part|
           parsed_data = JSON.parse(data_part.strip)
-          app.say "[#{parsed_data['message_type']}] #{parsed_data['response']}", parsed_data['colour'].to_sym
+          output parsed_data
           if parsed_data['close']
             close_connection
           end
@@ -43,6 +43,15 @@ module Spurious
         @exiting = true
         EventMachine.stop_event_loop
         exit
+      end
+
+      protected
+
+      def output(data)
+        message_type = data['message_type']
+        if message_type != 'debug' || (message_type == 'debug' && app.options['debug_mode'] == 'true')
+          app.say "[#{data['message_type']}] #{data['response']}", data['colour'].to_sym
+        end
       end
 
     end

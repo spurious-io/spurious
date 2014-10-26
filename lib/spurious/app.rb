@@ -12,6 +12,7 @@ module Spurious
 
     class_option :server_port, :type => :string, :default => ENV.fetch('SPURIOUS_SERVER_PORT', 4590), :desc => "The port of spurious server"
     class_option :server_ip, :type => :string, :default => ENV.fetch('SPURIOUS_SERVER_IP', 'localhost'), :desc => "The ip address of spurious server"
+    class_option :debug_mode, :type => :string, :default => ENV.fetch('SPURIOUS_DEBUG', false), :desc => "More verbose output from the spurious server"
     def initialize(*args)
       super
     end
