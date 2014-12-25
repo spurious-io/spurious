@@ -80,5 +80,5 @@ echo '[install] Starting spurious'
 spurious start
 echo '\n----------------------'
 echo 'Installation complete'
-echo '\nPlease add the following export to you ~/.bashrc or ~/.zshrc:'
+echo '\nPlease add the following export to your ~/.bashrc or ~/.zshrc:'
 echo "\nexport DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2375"
