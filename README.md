@@ -18,10 +18,10 @@ Currently the following services are supported by spurious:
 * DynamoDB ([DynamoDB Local](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tools.DynamoDBLocal.html))
 * ElastiCache ([fake_elasticache](https://github.com/stevenjack/fake_elasticache))
 
+* Spurious Browser ([spurious-browser](https://github.com/stevenjack/spurious-browser))
+
 > The following services are actively in development:
 
-* Spurious Browser (A web based application much like the AWS Console allowing control 
-  over the spurious services from a web interface).
 * SNS
 * CloudFormation (Allow you to create resources that there are already services for in spurious).
 
@@ -139,6 +139,30 @@ You should now have 6 containers running which you can check with:
 ```bash
 docker ps
 ```
+
+### GUI
+
+One of the services started by spurious is the [browser](https://www.github.com/stevenjack/spurious-browser). This allows
+you to interact and manage the fake services.
+
+To access the browser, type:
+
+```bash
+$: spurious ports
+```
+and you should see something similar to:
+
+```bash
+Service                      Host                         Port   Browser link
+spurious-dynamo              dynamodb.spurious.localhost  49255  http://dynamodb.spurious.localhost:49255
+spurious-browser             browser.spurious.localhost   49259  http://browser.spurious.localhost:49259 <--- Link to browser
+spurious-elasticache         192.168.59.103               49257  -
+spurious-elasticache-docker  192.168.59.103               49258  -
+spurious-memcached           192.168.59.103               49256  -
+spurious-s3                  s3.spurious.localhost        49254  http://s3.spurious.localhost:49254
+spurious-sqs                 sqs.spurious.localhost       49253  http://sqs.spurious.localhost:49253
+```
+You'll find the link for th browser under the service `spurious-browser`.
 
 ### Using the containers
 
