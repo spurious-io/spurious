@@ -14,7 +14,8 @@ module Spurious
             data << [
               type,
               mapping_data["Host"],
-              mapping_data["HostPort"]
+              mapping_data["HostPort"],
+              mapping_data["Host"].include?("spurious") ? "http://#{mapping_data["Host"]}:#{mapping_data["HostPort"]}" : '-'
             ]
           end
         end
@@ -29,7 +30,7 @@ module Spurious
         else
           app.say "\n"
           app.print_table(
-            build_table(['Service', 'Host', 'Port'], data)
+            build_table(['Service', 'Host', 'Port', 'Browser link'], data)
           ) unless parsed_data['response'].empty?
 
         end
