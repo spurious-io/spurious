@@ -161,7 +161,7 @@ spurious-memcached           192.168.59.103               49256  -
 spurious-s3                  s3.spurious.localhost        49254  http://s3.spurious.localhost:49254
 spurious-sqs                 sqs.spurious.localhost       49253  http://sqs.spurious.localhost:49253
 ```
-You'll find the link for th browser under the service `spurious-browser`.
+You'll find the browser link under the service `spurious-browser`.
 
 ### Using the containers
 
