@@ -17,7 +17,6 @@ Currently the following services are supported by spurious:
 * SQS ([fake_sqs](https://github.com/iain/fake_sqs))
 * DynamoDB ([DynamoDB Local](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tools.DynamoDBLocal.html))
 * ElastiCache ([fake_elasticache](https://github.com/stevenjack/fake_elasticache))
-
 * Spurious Browser ([spurious-browser](https://github.com/stevenjack/spurious-browser))
 
 > The following services are actively in development:
