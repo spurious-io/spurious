@@ -25,5 +25,5 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "thor"
   spec.add_runtime_dependency "spurious-server"
   spec.add_runtime_dependency "eventmachine"
-  spec.add_runtime_dependency "timeout"
+  spec.add_runtime_dependency "timeout", "0.0.0"
 end
