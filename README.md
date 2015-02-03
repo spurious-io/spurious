@@ -220,16 +220,19 @@ There are also helpers available for the different flavours of the AWS SDK:
 
 #### Ruby
 
-* [Spurious ruby AWS SDK Helper](https://github.com/stevenjack/spurious-ruby-awssdk-helper)
+* [Ruby AWS SDK Helper](https://github.com/spurious-io/ruby-awssdk-helper)
 
+#### Javascript
 
-#### PHP/Java/Node.js
+* [JS AWS SDK Helper](https://github.com/spurious-io/js-aws-sdk-helper) (In active development)
+
+#### PHP/Java/Clojure/Go...
 
 > Coming soon
 
 ## Contributing
 
-1. Fork it ( http://github.com/stevenjack/spurious/fork )
+1. Fork it ( http://github.com/spurious-io/spurious/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
