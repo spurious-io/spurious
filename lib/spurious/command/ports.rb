@@ -9,6 +9,13 @@ module Spurious
       def receive_data(data)
         parsed_data = JSON.parse(data.strip)
         data = []
+
+        if parsed_data['response'].is_a? String
+          @exiting = true
+          app.say "[error] #{parsed_data['response']}", :red
+          close_connection
+        end
+
         parsed_data['response'].each do |type, mapping|
           mapping.each do |mapping_data|
             data << [
