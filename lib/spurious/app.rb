@@ -75,19 +75,27 @@ module Spurious
           TCPSocket.new(options[:server_ip], options[:server_port])
         rescue Exception
           available = false
-          say <<-eos
+          # say <<-eos
 
-#{set_color("Connection to spurious server: #{options[:server_ip]}:#{options[:server_port]} has timed out.", :red)}
+# #{set_color("Connection to spurious server: #{options[:server_ip]}:#{options[:server_port]} has timed out.", :red)}
 
-#{set_color('To check the status of the server, run:', :white)}
-#{set_color('$ spurious-server status', :cyan)}
+# #{set_color('To check the status of the server, run:', :white)}
+# #{set_color('$ spurious-server status', :cyan)}
 
-#{set_color('To start the server, run:', :white)}
-#{set_color('$ spurious-server start', :cyan)}
+# #{set_color('To start the server, run:', :white)}
+# #{set_color('$ spurious-server start', :cyan)}
 
-          eos
+          # eos
         end
       end
+
+      unless available
+        say "spurious-server not running, starting...", :blue
+        `spurious-server start`
+        available = true
+      end
+
+
 
       available
 
