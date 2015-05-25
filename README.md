@@ -211,17 +211,9 @@ AWS.config(
 
 There are also helpers available for the different flavours of the AWS SDK:
 
-#### Ruby
-
-* [Ruby AWS SDK Helper](https://github.com/spurious-io/ruby-awssdk-helper)
-
-#### Clojure
-
-* [Clojure AWS SDK Helper](https://github.com/Integralist/spurious-clojure-aws-sdk-helper)
-
-#### JavaScript
-
-* [JS AWS SDK Helper](https://github.com/spurious-io/js-aws-sdk-helper) (In active development)
+* [Ruby](https://github.com/spurious-io/ruby-awssdk-helper)
+* [Clojure](https://github.com/Integralist/spurious-clojure-aws-sdk-helper)
+* [Javascript](https://github.com/spurious-io/js-aws-sdk-helper)
 
 #### PHP/Java/Go...
 
