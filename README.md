@@ -2,7 +2,7 @@
 
 Spurious is a toolset allowing development against a subset of AWS resources, locally.
 
-The services are run as Docker containers, and Spurious manages their lifecycle and 
+The services are run as Docker containers, and Spurious manages their lifecycle and
 linking so all you have to worry about is using the services.
 
 To use Spurious, you'll need to change the endpoint and port for each AWS service to those provided by Spurious.
@@ -57,22 +57,25 @@ As OSX doesn't currently have support for LXC containers natively, you need to r
 of providing this.
 
 The quickest way to get Docker setup on OSX is with a combination of [homebrew](http://brew.sh/),
-[boot2docker](https://github.com/boot2docker/boot2docker) and [VirutalBox](https://www.virtualbox.org/wiki/Downloads) (boot2docker currently only supports VirtualBox)
+[docker-machine](https://github.com/docker/machine) and [VirutalBox](https://www.virtualbox.org/wiki/Downloads)
 
-`brew install boot2docker docker`
+`brew install docker-machine docker`
 
-Once you've installed both of these, run the following commands to start the boot2docker:
+Once you've installed both of these, run the following commands to start the docker-machine:
 
 ```bash
-boot2docker	init
-boot2docker up
+docker-machine create development
 ```
 
-Once the process has completed, you should be given an environment variable to export, make sure that this is exported before continuing, as Spurious makes use of this.
+Once the process has completed, you will need to add an environment variable with command below, make sure that this is exported before continuing, as Spurious makes use of this.
+
+```bash
+docker-machine env development
+```
 
 ##### Alternative VM setup
 
-Boot2docker is just one route of being able to run Docker containers from Mac OSX (which is limited by the fact it only supports VirtualBox). You can use a number of other virtual machines, just make sure you've exposed the Docker API and you can connect to the VM on its own IP address so you can construct the following environment variable:
+docker-machine is just one route of being able to run Docker containers from Mac OSX. You can use a number of other virtual machines, just make sure you've exposed the Docker API and you can connect to the VM on its own IP address so you can construct the following environment variable:
 
 ```bash
 DOCKER_HOST=tcp://{IP_OF_HOST:DOCKER_API_PORT}
